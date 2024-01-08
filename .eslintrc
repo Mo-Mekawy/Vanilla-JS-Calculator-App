@@ -1,7 +1,15 @@
 {
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  },
   "extends": ["airbnb", "prettier"],
   "plugins": ["import"],
-  "ignorePatterns": ["node_modules/**/*"],
+  "ignorePatterns": ["node_modules/**/*", "webpack.*.js"],
   "rules": {
     "no-unused-vars": "warn"
   }
