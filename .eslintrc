@@ -9,8 +9,16 @@
   },
   "extends": ["airbnb", "prettier"],
   "plugins": ["import"],
-  "ignorePatterns": ["node_modules/**/*", "webpack.*.js"],
   "rules": {
     "no-unused-vars": "warn"
-  }
+  },
+  "ignorePatterns": ["node_modules/**/*", "webpack.*", "dist/*"],
+  "overrides": [
+    {
+      "files": "**/*.test.js",
+      "env": {
+        "jest": true
+      }
+    }
+  ]
 }

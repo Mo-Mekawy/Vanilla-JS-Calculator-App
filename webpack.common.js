@@ -1,5 +1,3 @@
-// add code autocomplete when writing configs
-/** @type {import('webpack').Configuration} */
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
