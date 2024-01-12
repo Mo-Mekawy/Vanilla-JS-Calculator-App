@@ -15,22 +15,19 @@ module.exports = {
         test: /\.(woff|woff2|eot|ttf)$/i,
         type: "asset/resource",
         generator: {
-          filename: "fonts/[name].[contenthash][ext]",
+          filename: "assets/fonts/[name].[contenthash][ext]",
         },
       },
       {
         test: /\.(png|jpe?g|webp)$/i,
         type: "asset/resource",
         generator: {
-          filename: "images/[name].[contenthash][ext]",
+          filename: "assets/images/[name].[contenthash][ext]",
         },
       },
       {
         test: /\.(svg|gif)$/i,
         type: "asset/inline",
-        generator: {
-          filename: "images/[name].[contenthash][ext]",
-        },
       },
     ],
   },

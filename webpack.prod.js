@@ -3,6 +3,8 @@ const common = require("./webpack.common");
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = merge(common, {
   mode: "production",
@@ -12,7 +14,10 @@ module.exports = merge(common, {
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [
+    new MiniCssExtractPlugin(),
+    new BundleAnalyzerPlugin({ analyzerMode: "static" }),
+  ],
   module: {
     rules: [
       {
@@ -23,6 +28,11 @@ module.exports = merge(common, {
           "postcss-loader",
           "sass-loader",
         ],
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: "babel-loader",
       },
     ],
   },
