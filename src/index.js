@@ -1,4 +1,4 @@
-const createPromise = () => {
+export const createPromise = () => {
   const arr1 = [1, 2, 3, 4];
   const arr2 = [1, 3, 6, 2];
 
@@ -12,14 +12,14 @@ const createPromise = () => {
   return myPromise;
 };
 
-const logArr = async (promise) => {
+export const logArr = async (promise) => {
   try {
     const finalArr = await promise;
-    alert(`this is the final array: ${finalArr}`);
+    return `this is the final array: ${finalArr}`;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
 const promise = createPromise();
-logArr(promise);
+alert(logArr(promise));
