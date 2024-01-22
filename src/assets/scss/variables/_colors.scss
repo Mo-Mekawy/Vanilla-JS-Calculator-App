@@ -1,0 +1,41 @@
+// determine theme
+$theme: "light";
+$theme: "dark";
+
+// main background
+$gradient-from-clr: #00aaff;
+$gradient-to-clr: #00ff6c;
+
+@if $theme == "dark" {
+  $gradient-from-clr: scale-color(#00aaff, $lightness: -45%, $saturation: -30%);
+  $gradient-to-clr: scale-color(#00ff6c, $lightness: -50%, $saturation: -30%);
+}
+$main-bg: linear-gradient(90deg, $gradient-from-clr, $gradient-to-clr);
+
+// text colors
+$clr-neutral-400: #272b33;
+$clr-neutral-200: #1f2129;
+
+// main theme colors
+$clr-primary-400: #fff;
+$clr-primary-300: #26fed7;
+$clr-primary-200: #c7d4e7;
+
+@if $theme == "dark" {
+  // main theme colors
+  $clr-primary-400: #1f2129;
+  $clr-primary-300: #272b33;
+  $clr-primary-200: #3a4452;
+  // text colors
+  $clr-neutral-400: #26fed7;
+  $clr-neutral-200: #fff;
+}
+
+// secondary decorative colors
+$clr-secondary-400: #eb6666;
+$clr-secondary-200: #ffeb3b;
+
+// buttons box-shadow
+$btn-box-shadow:
+  -8px -8px 10px rgba(255, 255, 255, 0.03),
+  5px 5px 10px rgba(0, 0, 0, 0.2);

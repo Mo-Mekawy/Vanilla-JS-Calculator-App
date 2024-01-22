@@ -1,0 +1,48 @@
+@use "../variables" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// reset the normalize margin for h(1,2,3,4,5,6)
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+*:focus-visible {
+  outline: $outline-size-main solid $clr-secondary-400;
+  outline-offset: 3px;
+}
+
+body {
+  font-family: $ff-main;
+  font-weight: $fw-main;
+  font-size: $fs-400;
+  background: $main-bg;
+  color: $clr-neutral-400;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  line-height: $line-height;
+}

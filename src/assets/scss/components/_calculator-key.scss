@@ -1,0 +1,29 @@
+@use "../variables" as *;
+
+.calculator-key {
+  border: none;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 0.5rem;
+  font-size: $fs-500-700;
+  cursor: pointer;
+  background-color: $clr-primary-400;
+  color: $clr-neutral-200;
+  box-shadow: $btn-box-shadow;
+  transition: background-color 150ms ease-in-out;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $clr-primary-200;
+  }
+
+  &.operator {
+    font-size: $fs-600-800;
+  }
+
+  &.equals {
+    aspect-ratio: unset;
+    grid-column: span 2;
+    font-size: $fs-800;
+  }
+}
