@@ -15,7 +15,7 @@ module.exports = merge(common, {
     clean: true,
   },
   plugins: [
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({ filename: "assets/css/[name].css" }),
     new BundleAnalyzerPlugin({ analyzerMode: "static" }),
   ],
   module: {
