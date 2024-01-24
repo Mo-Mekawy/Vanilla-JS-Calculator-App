@@ -17,9 +17,10 @@
   &__display {
     padding: 0.75rem 1rem;
     text-align: end;
-    min-height: 100px;
+    $input-output-min-height: 2ch;
 
     .input {
+      min-height: $input-output-min-height;
       color: $clr-neutral-400;
       font-size: $fs-400-600;
       margin-bottom: 0.5rem;
@@ -31,28 +32,29 @@
         transform: translateY(100%);
       }
 
-      /* width */
+      // custom scroll bar
+      // width
       &::-webkit-scrollbar {
         height: 3px;
       }
 
-      /* Track */
+      // track
       &::-webkit-scrollbar-track {
-        background: $clr-primary-200;
-      }
-
-      /* Handle */
-      &::-webkit-scrollbar-thumb {
         background: $clr-primary-300;
       }
 
-      /* Handle on hover */
-      &::-webkit-scrollbar-thumb:hover {
-        background: scale-color($clr-primary-300, $lightness: 30%);
+      // handle
+      &::-webkit-scrollbar-thumb {
+        background: $clr-primary-200;
+
+        &:hover {
+          background: scale-color($clr-primary-200, $lightness: 20%);
+        }
       }
     }
 
     .output {
+      min-height: $input-output-min-height;
       color: $clr-neutral-200;
       font-size: $fs-600-800;
       word-wrap: break-word;
@@ -71,4 +73,8 @@
 
 .equals {
   color: $clr-secondary-200;
+}
+
+.span-2 {
+  grid-column: span 2;
 }
