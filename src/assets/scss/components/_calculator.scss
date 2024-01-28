@@ -24,10 +24,21 @@
       color: $clr-neutral-400;
       font-size: $fs-400-600;
       margin-bottom: 0.5rem;
-      overflow: auto;
+      overflow-x: auto;
       white-space: nowrap;
       transform: translateY(0px);
       transition: transform 200ms linear;
+      padding-right: 2px;
+      border-right: 1px solid transparent;
+
+      // animate a cursor at the end
+      animation: fade-in-out 600ms ease-in-out infinite alternate;
+      @keyframes fade-in-out {
+        to {
+          border-right-color: $clr-neutral-200;
+        }
+      }
+
       &:has(+ .output:empty) {
         transform: translateY(100%);
       }
@@ -65,6 +76,38 @@
 
 .modifier {
   color: $clr-neutral-400;
+}
+
+.brackets {
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+
+  &:hover {
+    background-color: $clr-primary-400;
+  }
+
+  div {
+    flex: 1;
+    display: grid;
+    place-items: center;
+
+    &:hover {
+      background-color: $clr-primary-200;
+    }
+
+    &:first-child {
+      border-right: 1px solid $clr-primary-200;
+    }
+
+    &:last-child {
+      border-left: 1px solid $clr-primary-200;
+    }
+  }
+}
+
+.bracket {
+  color: #03a9f4;
 }
 
 .operator {
