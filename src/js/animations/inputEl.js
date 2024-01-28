@@ -1,5 +1,4 @@
-const scrollToEnd = (el) =>
-  el.scrollTo({ left: el.scrollWidth, behavior: "smooth" });
+const scrollToEnd = (el) => el.scrollTo({ left: el.scrollWidth });
 
 export default function scrollOnChange(el) {
   const observer = new MutationObserver((mutations) => {
