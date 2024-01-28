@@ -22,8 +22,8 @@ keyBtns.forEach((btn) => {
 });
 
 equalBtn.addEventListener("click", () => {
-  calculator.comput();
-  calculator.displayOutput();
+  const result = calculator.comput();
+  calculator.displayOutput(result);
 });
 
 clearBtn.addEventListener("click", () => {
@@ -32,4 +32,23 @@ clearBtn.addEventListener("click", () => {
 
 delBtn.addEventListener("click", () => {
   calculator.removeLast();
+});
+
+// allow keyboard use
+document.addEventListener("keydown", (e) => {
+  switch (e.key) {
+    case "Enter":
+    case "=":
+      equalBtn.click();
+      break;
+    case "Backspace":
+      delBtn.click();
+      break;
+    case "Escape":
+      clearBtn.click();
+      break;
+    default:
+      if (/^[0-9.+\-*/()]$/.test(e.key))
+        document.querySelector(`[data-key="${e.key}"]`).click();
+  }
 });
