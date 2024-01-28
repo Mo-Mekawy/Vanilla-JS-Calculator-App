@@ -1,3 +1,4 @@
+import { Parser } from "expr-eval";
 import beautifyInput from "./helpers/beautifyInput";
 import validateDotAddition from "./helpers/validateDotAddition";
 
@@ -12,7 +13,7 @@ export default class Calculator {
   comput() {
     if (this.input === "") return "";
 
-    return eval(this.input);
+    return Parser.evaluate(this.input);
   }
 
   appendInput(val) {

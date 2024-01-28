@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "core-js": "^3.35.0",
+    "expr-eval": "^2.0.2",
     "regenerator-runtime": "^0.14.1"
   }
 }
