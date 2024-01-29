@@ -1,7 +1,7 @@
 name: NodeJS with Webpack
 
 permissions:
-  contents: read
+  contents: write
   pages: write 
 
 on:
@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x]
+        node-version: [20.x]
 
     steps:
     - uses: actions/checkout@v3
