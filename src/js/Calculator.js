@@ -1,6 +1,7 @@
 import { Parser } from "expr-eval";
 import beautifyInput from "./helpers/beautifyInput";
 import validateDotAddition from "./helpers/validateDotAddition";
+import handleErrMsg from "./helpers/handleErrorMessage";
 
 export default class Calculator {
   constructor(inputEl, outputEl) {
@@ -13,7 +14,13 @@ export default class Calculator {
   comput() {
     if (this.input === "") return 0;
 
-    return Parser.evaluate(this.input);
+    try {
+      const result = Parser.evaluate(this.input);
+      if (Number.isNaN(result)) throw new Error("NaN");
+      return result;
+    } catch (err) {
+      return handleErrMsg(err);
+    }
   }
 
   appendInput(val) {
@@ -30,7 +37,7 @@ export default class Calculator {
   }
 
   displayOutput(sum) {
-    this.outputEl.innerText = sum.toLocaleString("en-US");
+    this.outputEl.innerHTML = sum.toLocaleString("en-US");
   }
 
   removeLast() {
@@ -55,6 +62,6 @@ export default class Calculator {
     this.output = "";
 
     this.inputEl.innerHTML = "";
-    this.outputEl.innerText = "";
+    this.outputEl.innerHTML = "";
   }
 }
