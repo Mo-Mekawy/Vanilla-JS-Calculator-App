@@ -1,4 +1,7 @@
 export default function validateDotAddition(inputStr) {
+  if (typeof inputStr !== "string")
+    throw new TypeError("Invalid argument type (accepts only strings)!");
+
   if (inputStr === "") return true;
   const str = inputStr.trim();
 

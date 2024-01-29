@@ -1,6 +1,27 @@
 import validateDotAddition from "../../js/helpers/validateDotAddition";
 
 describe("tests that return true", () => {
+  it("throws an error when called with a non-string argument", () => {
+    const functionThrowWrapper = (cb, arg) => () => cb(arg);
+    expect.assertions(4);
+
+    expect(functionThrowWrapper(validateDotAddition, 123)).toThrow(
+      new TypeError("Invalid argument type (accepts only strings)!")
+    );
+
+    expect(functionThrowWrapper(validateDotAddition, { test: "jest" })).toThrow(
+      new TypeError("Invalid argument type (accepts only strings)!")
+    );
+
+    expect(functionThrowWrapper(validateDotAddition, [test, "jest"])).toThrow(
+      new TypeError("Invalid argument type (accepts only strings)!")
+    );
+
+    expect(functionThrowWrapper(validateDotAddition, true)).toThrow(
+      new TypeError("Invalid argument type (accepts only strings)!")
+    );
+  });
+
   it("return true when called with an integer as last number", () => {
     expect(validateDotAddition("213")).toBe(true);
     expect(validateDotAddition("213 + 34")).toBe(true);

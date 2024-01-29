@@ -2,7 +2,11 @@ export default function handleErrMsg(err) {
   const wrapMsg = (msg) =>
     `<span style='color:#F44336;word-wrap:normal;word-break:normal'>${msg}</span>`;
 
-  if (err.message === "NaN") return wrapMsg("Math error. Not a Number");
+  if (!(err instanceof Error) || err.message === undefined)
+    return wrapMsg("Unknown Error occurred");
+
+  if (err.message.toLowerCase() === "nan")
+    return wrapMsg("Math error. Not a Number");
 
   if (err.message.includes("(") || err.message.includes(")"))
     return wrapMsg("syntax Error. Please check your parentheses.");
