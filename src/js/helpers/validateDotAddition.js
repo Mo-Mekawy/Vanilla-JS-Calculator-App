@@ -1,5 +1,6 @@
-export default function validateDotAddition(str) {
-  if (str === "") return true;
+export default function validateDotAddition(inputStr) {
+  if (inputStr === "") return true;
+  const str = inputStr.trim();
 
   const lastChar = str[str.length - 1];
   // if last char is a dot then you can't add another one
