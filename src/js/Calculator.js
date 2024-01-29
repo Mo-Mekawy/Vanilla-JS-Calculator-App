@@ -11,13 +11,19 @@ export default class Calculator {
   }
 
   comput() {
-    if (this.input === "") return "";
+    if (this.input === "") return 0;
 
     return Parser.evaluate(this.input);
   }
 
   appendInput(val) {
     if (val === "." && !validateDotAddition(this.input)) return;
+
+    // if the last input was an operator and trying to add another one
+    // replace the last one with the new instead of just adding it
+    const isOperator = (str) => ["+", "-", "/", "*"].includes(str);
+    if (isOperator(val) && isOperator(this.input[this.input.length - 1]))
+      this.removeLast();
 
     this.input += val;
     this.inputEl.innerHTML += beautifyInput(val);
