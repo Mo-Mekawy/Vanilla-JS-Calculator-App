@@ -1,7 +1,7 @@
 import { Parser } from "expr-eval";
-import beautifyInput from "./helpers/beautifyInput";
-import validateDotAddition from "./helpers/validateDotAddition";
-import handleErrMsg from "./helpers/handleErrorMessage";
+import beautifyInput from "../helpers/beautifyInput";
+import validateDotAddition from "../helpers/validateDotAddition";
+import handleErrMsg from "../helpers/handleErrorMessage";
 
 export default class Calculator {
   constructor(inputEl, outputEl) {
