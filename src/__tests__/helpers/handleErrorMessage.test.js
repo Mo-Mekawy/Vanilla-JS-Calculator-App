@@ -65,11 +65,11 @@ describe("test handleErrMsg", () => {
 
     // extra symbol at end error
     expect(handleErrMsg(new Error("Expected TNAME"))).toBe(
-      formatMsg("syntax Error. unexpected sybmol at end of equation.")
+      formatMsg("syntax Error. unexpected symbol at end of equation.")
     );
 
     expect(handleErrMsg(new Error("Expected EOF"))).toBe(
-      formatMsg("syntax Error. unexpected sybmol at end of equation.")
+      formatMsg("syntax Error. unexpected symbol at end of equation.")
     );
   });
 

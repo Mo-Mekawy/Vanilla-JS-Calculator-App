@@ -1,4 +1,4 @@
-import scrollOnChange from "../../js/animations/inputEl";
+import scrollOnChange from "../../js/animations/scrollOnChange";
 
 describe("scrolls on any change in the childs of the element to the end", () => {
   beforeEach(() => {

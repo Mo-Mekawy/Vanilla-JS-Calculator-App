@@ -1,10 +1,10 @@
 // Import the init function
 import init from "../js/app";
 import Calculator from "../js/classes/Calculator";
-import scrollOnChange from "../js/animations/inputEl";
+import scrollOnChange from "../js/animations/scrollOnChange";
 
 // Mock the scrollOnChange function
-jest.mock("../js/animations/inputEl", () => jest.fn());
+jest.mock("../js/animations/scrollOnChange", () => jest.fn());
 
 // Mock the Calculator class
 const mockAppendInput = jest.fn();

@@ -1,5 +1,5 @@
 import Calculator from "./classes/Calculator";
-import scrollOnChange from "./animations/inputEl";
+import scrollOnChange from "./animations/scrollOnChange";
 
 export default function init() {
   // select all needed buttons and display elements

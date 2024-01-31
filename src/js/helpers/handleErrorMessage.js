@@ -21,7 +21,7 @@ export default function handleErrMsg(err) {
     err.message.includes("Expected TNAME") ||
     err.message.includes("Expected EOF")
   )
-    return wrapMsg("syntax Error. unexpected sybmol at end of equation.");
+    return wrapMsg("syntax Error. unexpected symbol at end of equation.");
 
   return wrapMsg("syntax Error. Please check your equation.");
 }
