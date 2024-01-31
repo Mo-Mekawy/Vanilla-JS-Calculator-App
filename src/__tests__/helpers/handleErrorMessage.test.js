@@ -71,6 +71,13 @@ describe("test handleErrMsg", () => {
     expect(handleErrMsg(new Error("Expected EOF"))).toBe(
       formatMsg("syntax Error. unexpected symbol at end of equation.")
     );
+
+    // parentheses right after numbers error
+    expect(handleErrMsg(new Error("function"))).toBe(
+      formatMsg(
+        "syntax Error. An operator must separate between parentheses and numbers"
+      )
+    );
   });
 
   it("return the default message when called with an unknown error.message", () => {

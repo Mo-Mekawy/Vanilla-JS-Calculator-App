@@ -199,7 +199,7 @@ describe("Calculator integration tests", () => {
       );
     });
 
-    it("should display a default error message for other errors", () => {
+    it("should display 'Syntax Error' for parentheses right after numbers", () => {
       // Input: 1()
       getEl("key", "1").click();
       getEl("key", "(").click();
@@ -207,7 +207,9 @@ describe("Calculator integration tests", () => {
       getEl("equals").click();
 
       expect(outputEl.innerHTML).toBe(
-        formatMsg("syntax Error. Please check your equation.")
+        formatMsg(
+          "syntax Error. An operator must separate between parentheses and numbers"
+        )
       );
     });
   });

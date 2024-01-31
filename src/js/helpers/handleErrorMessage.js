@@ -14,6 +14,11 @@ export default function handleErrMsg(err) {
   if (err.message === "unexpected TEOF: EOF")
     return wrapMsg("syntax Error. Please write the next operand.");
 
+  if (err.message.includes("function"))
+    return wrapMsg(
+      "syntax Error. An operator must separate between parentheses and numbers"
+    );
+
   if (err.message.includes("."))
     return wrapMsg("Invalid value. Single dot without a number.");
 
