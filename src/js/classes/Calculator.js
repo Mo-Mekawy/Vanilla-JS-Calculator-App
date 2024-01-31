@@ -4,10 +4,25 @@ import validateDotAddition from "../helpers/validateDotAddition";
 import handleErrMsg from "../helpers/handleErrorMessage";
 
 export default class Calculator {
+  static checkArgumentErrors(inputEl, outputEl) {
+    // check for missing arguments
+    if (inputEl === undefined || outputEl === undefined)
+      throw new SyntaxError("Missing argument (should pass two Dom elements)");
+
+    // if input or output weren't Dom elements
+    if (!(inputEl instanceof Element) || !(outputEl instanceof Element))
+      throw new TypeError("Both parameters must be a Dom Element");
+
+    // if input and output are the same element
+    if (inputEl === outputEl)
+      throw new TypeError("Both parameters must be different elements");
+  }
+
   constructor(inputEl, outputEl) {
+    Calculator.checkArgumentErrors(inputEl, outputEl);
+
     this.inputEl = inputEl;
     this.outputEl = outputEl;
-
     this.clearAll();
   }
 
@@ -24,6 +39,8 @@ export default class Calculator {
   }
 
   appendInput(val) {
+    if (typeof val !== "string") return;
+
     if (val === "." && !validateDotAddition(this.input)) return;
 
     // if the last input was an operator and trying to add another one
@@ -37,7 +54,15 @@ export default class Calculator {
   }
 
   displayOutput(sum) {
-    this.outputEl.innerHTML = sum.toLocaleString("en-US");
+    // if sum is NaN as a string then it is an error message element
+    if (typeof sum === "string" && Number.isNaN(parseFloat(sum))) {
+      this.outputEl.innerHTML = sum;
+      return;
+    }
+
+    // Convert to number if the sum were in string format
+    const sumAsNumber = typeof sum === "string" ? parseFloat(sum) : sum;
+    this.outputEl.innerHTML = sumAsNumber.toLocaleString("en-US");
   }
 
   removeLast() {
