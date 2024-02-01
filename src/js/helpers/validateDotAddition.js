@@ -1,3 +1,14 @@
+// @ts-check
+/**
+ * @module js/helpers/validateDotAddition
+ */
+
+/**
+ * @function validateDotAddition
+ * @param {string} inputStr the string to check
+ * @returns {boolean} a boolean to indecate whether you can add a dot or not
+ * @throws {TypeError} for non string arguments
+ */
 export default function validateDotAddition(inputStr) {
   if (typeof inputStr !== "string")
     throw new TypeError("Invalid argument type (accepts only strings)!");

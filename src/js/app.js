@@ -1,14 +1,14 @@
 /**
- * @module app
- * @description exports the main app initializer function and depends
- * on Calculator class {@link module:Calculator}
- * and scrollOnChange function {@link module:scrollOnChange}
+ * @module js/app
+ * @description exports the main app initializer function
  */
 
 import Calculator from "./classes/Calculator";
 import scrollOnChange from "./animations/scrollOnChange";
 
 /**
+ * @function init
+ * @returns {void}
  * @description Initializes the calculator app.
  * by adding the necessary eventlisteners and
  * instantiating the calculator

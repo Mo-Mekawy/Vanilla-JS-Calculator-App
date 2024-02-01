@@ -1,4 +1,19 @@
+// @ts-check
+/**
+ * @module  js/helpers/handleErrMsg
+ *
+ */
+
+/**
+ * @function handleErrMsg
+ * @param {Error} err the err object containing the message
+ * @returns {string} an element containing the error message
+ */
 export default function handleErrMsg(err) {
+  /**
+   * @param {string} msg the message to wrap in an element
+   * @returns {string} an element containing the message
+   */
   const wrapMsg = (msg) =>
     `<span style='color:#F44336;word-wrap:normal;word-break:normal'>${msg}</span>`;
 

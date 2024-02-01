@@ -1,7 +1,5 @@
 /**
- * @module scrollOnChange
- * @description make an elements last child always visible
- * by scrolling to the end when any child or text is added
+ * @module js/animations/scrollOnChange
  */
 
 /**

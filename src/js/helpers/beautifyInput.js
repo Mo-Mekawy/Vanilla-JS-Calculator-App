@@ -1,3 +1,15 @@
+// @ts-check
+/**
+ * @module  js/helpers/beautifyInput
+ *
+ */
+
+/**
+ * @function beautifyInput
+ * @param {string} input the character format
+ * @returns {string} the same input if it were a number
+ * and a formatted element if it were a bracket or operator
+ */
 export default function beautifyInput(input) {
   const operators = { "+": "+", "/": "÷", "*": "×", "-": "−" };
 

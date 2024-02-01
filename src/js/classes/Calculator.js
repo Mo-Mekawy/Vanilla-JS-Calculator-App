@@ -1,5 +1,5 @@
 /**
- * @module Calculator
+ * @module js/classes/Calculator
  */
 
 import { Parser } from "expr-eval";
