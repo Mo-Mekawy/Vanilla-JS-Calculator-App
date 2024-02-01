@@ -1,6 +1,5 @@
 /**
  * @module Calculator
- * @description exports the main Calculator class
  */
 
 import { Parser } from "expr-eval";
